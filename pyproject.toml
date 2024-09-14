@@ -1,0 +1,42 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "delas"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+delas = "delas.__main__:main"
+
+[tool.kedro]
+package_name = "delas"
+project_name = "delas"
+kedro_init_version = "0.19.8"
+tools = [ "Testing", "Data Structure", "Kedro Viz",]
+example_pipeline = "False"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.pytest.ini_options]
+addopts = "--cov-report term-missing --cov src/delas -ra"
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = [ "pragma: no cover", "raise NotImplementedError",]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "delas.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false
+
+[tool.kedro_telemetry]
+project_id = "df24151039ad4751993c472ea1b853ed"

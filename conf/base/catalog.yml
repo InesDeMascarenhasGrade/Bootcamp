@@ -1,0 +1,19 @@
+companies:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/companies.csv
+  load_args:
+    sep: ','
+  save_args:
+    index: False
+
+reviews:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/reviews.csv
+  load_args:
+    sep: ','
+  save_args:
+    index: False
+
+shuttles:
+  type: pandas.ExcelDataset
+  filepath: data/01_raw/shuttles.xlsx
